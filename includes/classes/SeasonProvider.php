@@ -11,30 +11,51 @@ class SeasonProvider {
         $seasons = $entity->getSeasons();
 
         if(sizeof($seasons) == 0) {
-            return;// it will return movies 
+            return;
         }
 
-        $seasonsHtml = "";//i have created a string to concatenate the html part
+        $seasonsHtml = "";
         foreach($seasons as $season) {
             $seasonNumber = $season->getSeasonNumber();
-            
 
-// Here i have done string concatenation 
-            $seasonsHtml .= "<div class='season'> 
+            $videosHtml = "";
+            foreach($season->getVideos() as $video) {
+                $videosHtml .= $this->createVideoSquare($video);
+            }
+
+
+            $seasonsHtml .= "<div class='season'>
                                     <h3>Season $seasonNumber</h3>
+                                    <div class='videos'>
+                                        $videosHtml
+                                    </div>
                                 </div>";
-                                
         }
 
-       return $seasonsHtml;
+        return $seasonsHtml;
     }
-    private function createVideoSquare($video){
+
+    private function createVideoSquare($video) {
         $id = $video->getId();
         $thumbnail = $video->getThumbnail();
-        $name = $video->getName();
+        $name = $video->getTitle();
         $description = $video->getDescription();
         $episodeNumber = $video->getEpisodeNumber();
 
+        return "<a href='watch.php?id=$id'>
+                    <div class='episodeContainer'>
+                        <div class='contents'>
+
+                            <img src='$thumbnail'>
+
+                            <div class='videoInfo'>
+                                <h4>$name</h4>
+                                <span>$description</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>";
     }
 }
 ?>
