@@ -44,5 +44,15 @@ class Video {
     public function getEpisodeNumber() {
         return $this->sqlData["episode"];
     }
+
+
+
+    // it is used for incrementing the views
+    public function incrementViews(){
+        $query = $this->con->prepare("UPDATE videos SET views=views+1 WHERE id=:id");
+        $query->bindValue(":id",$this->getId());
+        $query->execute();
+        
+    }
 }
 ?>
