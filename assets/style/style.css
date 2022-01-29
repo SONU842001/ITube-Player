@@ -246,3 +246,23 @@ button i {
 .watchContainer video{
     width: 100%;
 }
+.videoControls,
+.watchNav{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+}
+.videoControls h1{
+    color: #fff;
+}
+.transparent,
+.iconButton{
+    font-size: 50px;/*  it will change the size of back arrow font */
+    padding: 50px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
