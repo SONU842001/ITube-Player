@@ -48,7 +48,7 @@ class Entity {
             
             if($currentSeason != null && $currentSeason != $row["season"])
             {
-                $seasons[] = new Season($currentSeason, $videos);
+                $seasons[] = new Season($currentSeason, $videos); // Here i have created array of object using the array function
                 
                 $videos= array();
             }
