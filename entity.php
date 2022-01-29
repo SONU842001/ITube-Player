@@ -13,4 +13,8 @@ $entity = new Entity($con, $entityId);
 $preview = new PreviewProvider($con,$userLoggedIn);
  echo $preview->createPreviewVideo($entity);//Now it will work for any individual id entity not random videos
 
+ $seasonProvider = new SeasonProvider($con,$userLoggedIn);
+  echo $seasonProvider->create($entity);
+  
+
 ?>
