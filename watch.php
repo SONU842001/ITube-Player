@@ -9,4 +9,12 @@ if(!isset($_GET["id"])){   // Here Get will take id values from browser URL (imp
 
 $video = new Video($con, $_GET["id"]);
 $video->incrementViews();
+
 ?>
+
+<div class="watchContainer">
+    <video controls autoplay> <!-- Here controls autoplay will give option to run the videos-->
+         <source src='<?php echo $video->getFilePath(); ?>' type="video/mp4">
+    </video>     
+
+</div>
