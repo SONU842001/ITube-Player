@@ -1,72 +1,85 @@
 html,
-body{
-    height :100%;
+body {
+    height: 100%;
     padding: 0;
-    margin:0;
+    margin: 0;
 }
-*{
+
+* {
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     box-sizing: border-box;
 }
 
+h3 {
+    color: #e5e5e5;
+}
 
+a h3:hover {
+    color: #fff;
+}
 
-.signInContainer
-{
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    min-width: 1050px;
+    min-height: 100%;
+    background-color: #141414;
+}
+
+.signInContainer {
     background-color: #efefee;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
-.column{
+
+.column {
     background-color: #fff;
     min-height: 300px;
     max-height: 100%;
     width: 450px;
-    box-shadow: rgba(0,0,0,0.1) 0 1px 2px;
+    box-shadow: rgba(0,0,0, 0.1) 0 1px 2px;
     padding: 20px 35px;
-    overflow-y: auto;/* this is important*/
-    
-}.column form
-{
-   display: flex;
-   flex-direction: column;
-   padding-top:24px ;
+    overflow-y: auto;
 }
+
+.column form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+}
+
 .column form input[type="text"],
 .column form input[type="email"],
-.column form input[type="password"]{
-
+.column form input[type="password"] {
     font-size: 14px;
-    margin: 10px 0 ;
+    margin: 10px 0;
     border: none;
     border-bottom: 1px solid #dedede;
-    padding: 10px;
-    
-   
 }
-.column form input[type="submit"]
-{
-   background-color: #4285f4; 
-   color: #fff;
-   height: 36px;
-   width: 88px;
-   border: none;
-   border-radius: 3px;
-   font-weight: 500;
-   margin-top: 10px;
-   margin-bottom: 20px;
-   font-size: 16px;
+
+.column form input[type="submit"] {
+    background-color: #4285f4;
+    color: #fff;
+    height: 36px;
+    width: 88px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
-.column .header
-{
+
+.column .header {
     padding: 20px 0;
 }
-.column .header h3
-{
+
+.column h3 {
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
@@ -74,68 +87,73 @@ body{
     padding-top: 16px;
     color: #000;
 }
-.column .header span
-{
-    font-size: 14px;
 
+.column .header span {
+    font-size: 14px;
 }
-.column .header img{
+
+.column .header img {
     width: 100px;
 }
-.signInMessage
-{
+
+.signInMessage {
     font-size: 14px;
     font-weight: 400;
-    text-decoration:none ;
-
+    text-decoration: none;
 }
-.errorMessage{
+
+.errorMessage {
     color: #f00;
     font-size: 14px;
     font-weight: 400;
     text-align: center;
 }
+
 .previewImage,
-.previewVideo{
-  width: 100%;
-  
-  
+.previewVideo {
+    width: 100%;
 }
-.previewContainer{
+
+.previewContainer {
     position: relative;
     display: flex;
 }
-.previewContainer.small{
+
+.previewContainer.small {
     width: 230px;
     height: 129px;
     margin-right: 4px;
     display: inline-flex;
 }
-.previewContainer.small img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;/* it is used to make image not to stretch */
+
+.previewContainer.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.previewOverlay{
+.previewOverlay {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.3);
     position: absolute;
 }
-.previewOverlay .mainDetails h3{
+
+.previewOverlay .mainDetails h3 {
     color: #fff;
     font-size: 40px;
     margin: 15px 0;
 }
-.previewOverlay .mainDetails{
+
+.previewOverlay .mainDetails {
     position: relative;
     top: 35%;
     margin-left: 50px;
     display: flex;
     flex-direction: column;
 }
-.mainDetails button{
+
+.mainDetails button {
     background-color: rgba(51,51,51,0.4);
     color: #fff;
     border: none;
@@ -148,49 +166,75 @@ body{
     margin-bottom: 15px;
     margin-right: 5px;
     cursor: pointer;
-
 }
-button i{
+
+button i {
     color: inherit;
 }
-.mainDetails button:hover{   /* hovering effect on button*/
+
+.mainDetails button:hover {
     background-color: #e6e6e6;
     color: #000;
 }
-h3{
-    color: #e5e5e5; ;
-}
-a h3:hover{
-    color: #fff;
-}
-a {
-    text-decoration: none
-}
-.wrapper{
-    min-width: 1050px;
-    min-height: 100%;
-    background-color: #141414;
-}
-.category{
+
+.category {
     display: flex;
     flex-direction: column;
     padding: 10px 0;
 }
-.entities{  /* all are very important css tags */
+
+.entities,
+.videos {
     overflow-x: auto;
     overflow-y: hidden;
-    white-space: nowrap;/* all are very important css tags */
-    
-}
-.previewCategories{
-    padding: 0 50px;
-}
-.errorBanner{
-   color: #ffff;
-   position: absolute;
-   top: 25%;
-   width: 100%;
-   text-align: center;
-   font-size: 18px;
+    white-space: nowrap;
 }
 
+.previewCategories {
+    padding: 0 50px;
+}
+
+.errorBanner {
+    color: #fff;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.season {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+}
+
+.episodeContainer {
+    display: inline-flex;
+    justify-content: center;
+    margin-right: 4px;
+}
+
+.episodeContainer .contents {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+
+.episodeContainer img {
+    width: 230px;
+    height: 129px;
+    object-fit: cover;
+}
+
+.episodeContainer .videoInfo h4,
+.episodeContainer .videoInfo span {
+    color: #fff;
+    width: 100%;
+    white-space: normal;
+}
+
+.episodeContainer .videoInfo {
+    max-height: 200px;
+    overflow-y: auto;
+}
