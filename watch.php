@@ -16,7 +16,7 @@ $video->incrementViews();
 
      <!-- Creating the back button starts-->
      <div class="videoControls watchNav">
-         <button class="transparent iconButton"><i class="fas fa-arrow-left"></i> </button>
+     <button onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
           <h1><?php  echo $video->getTitle();?></h1>
      </div>
 

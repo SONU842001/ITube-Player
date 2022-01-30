@@ -10,3 +10,6 @@ function previewEnded() {
     $(".previewVideo").toggle();
     $(".previewImage").toggle();
 }
+
+/* creating back button functionality*/
+
