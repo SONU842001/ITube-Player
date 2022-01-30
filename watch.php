@@ -30,3 +30,9 @@ $video->incrementViews();
     </video>     
 
 </div>
+
+<!--  Hiding the video controls starts from hare -->
+
+<script >
+    initVideo();
+</script>

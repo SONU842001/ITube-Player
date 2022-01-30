@@ -11,5 +11,27 @@ function previewEnded() {
     $(".previewImage").toggle();
 }
 
-/* creating back button functionality*/
+/*Hiding the video controls after 2 seconds means after two seconds when mouse move from screen then video name and back button must disapear  */
+
+function startHideTimer()
+{
+    var timeout = null;
+    
+    $(document).on("mousemove", function(){
+        clearTimeout(timeout);
+        $(".watchNav").fadeIn();
+
+        timeout =setTimeout(function(){
+            $(".watchNav").fadeOut();
+        },2000);
+        // after two second it will fadeout
+
+
+
+    })
+    
+}
+function initVideo(){
+    startHideTimer();
+}
 
