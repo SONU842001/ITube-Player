@@ -31,7 +31,20 @@ function startHideTimer()
     })
     
 }
-function initVideo(){
+
+// progress timer of video starts  using ajax
+
+function initVideo(videoId, username){
     startHideTimer();
+    updateProgresTimer(videoId, username); 
 }
 
+function updateProgresTimer(videoId, username){
+    addDuration(videoId, username);
+   
+}
+function addDuration(videoId, username){
+     $.post("ajax/addDuration.php", { videoId: videoId , username: username },function(data){  // post method in ajax (very important ) first ajax/addDuration.php se ajax request kiya gaya and phir function me data mila us file se
+         alert(data);
+     })
+}

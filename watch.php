@@ -34,5 +34,5 @@ $video->incrementViews();
 <!--  Hiding the video controls starts from hare -->
 
 <script >
-    initVideo();
+    initVideo("<?php echo $video->getId(); ?>", "<?php echo $userLoggedIn ;?>");
 </script>
