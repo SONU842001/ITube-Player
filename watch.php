@@ -1,7 +1,7 @@
 <?php  // Incrementing the videos views?>
 
 <?php 
-
+$hideNav = true;
 require_once("includes/header.php");
 
 if(!isset($_GET["id"])){   // Here Get will take id values from browser URL (important concept)
