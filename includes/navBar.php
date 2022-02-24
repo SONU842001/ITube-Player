@@ -6,7 +6,7 @@
             </div>
             <ul class="navLinks">
                   <li><a href="index.php">Home</a></li>
-                  <li><a href="show.php">TV Shows</a></li>
+                  <li><a href="shows.php">TV Shows</a></li>
                   <li><a href="movie.php">Movies</a></li>
             </ul>
 

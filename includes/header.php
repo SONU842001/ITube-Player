@@ -28,7 +28,10 @@ $userLoggedIn = $_SESSION["userLoggedIn"];
     </head>
     <body>
         <div class='wrapper'>
+  
         
+        <!-- it is very interesting concept to not how nav bar during video playing -->
+        <!-- here hideNav variable is declared in watch.php file -->
 <?php
 if(!isset($hideNav))
 {
