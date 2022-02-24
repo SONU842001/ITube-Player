@@ -20,35 +20,62 @@ class  CategoryContainers{
        return $html ."</div>";
     }
 
+    public function showTVShowCategories(){
+        
+        $query= $this->con->prepare("SELECT * FROM categories");
+        
+        $query->execute();
+         
+       // Here new concept 
+        $html= "<div class='previewCategories'> 
+                   <h1> TV Shows </h1>";
+                   
+                   
+        while($row = $query->fetch(PDO::FETCH_ASSOC)){
+            
+            $html .= $this->getCategoryHtml($row,null,true,false);// here true for tvshows and false for movie
+            
+        }
+        echo $html ."</div>";
+        
+     }
+
 
     // This function will create like you may also like this category(very interesting)
     public function showCategory($categoryId, $title=null){
         $query= $this->con->prepare("SELECT * FROM categories WHERE id=:id");
         $query->bindValue(":id",$categoryId);
         $query->execute();
+        echo "hello";
  
         $html= "<div class='previewCategories noScroll'>"; // Here new concept 
  
         while($row = $query->fetch(PDO::FETCH_ASSOC)){
+            
             $html .= $this->getCategoryHtml($row,$title,true,true);
         }
-        return $html ."</div>";
+        echo  $html ."</div>";
     }
 
 
     private function getCategoryHtml($sqlData,$title, $tvShows,$movies){
-        
+       
         $categoryId=$sqlData["id"];
         $title = $title == null ? $sqlData["name"] : $title;
-
+        
         if($tvShows && $movies){
+            
             $entities = EntityProvider::getEntities($this->con, $categoryId,30);
         }
-        else if($tvshows){
+        else if($tvShows){
+            
             //Get tv show entities
+            $entities = EntityProvider::getTVShowEntities($this->con, $categoryId,30);
+
         }
         else {
             //Get movie entities
+            
         }
         if(sizeof($entities) == 0){
             return ;
