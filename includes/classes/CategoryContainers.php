@@ -39,14 +39,34 @@ class  CategoryContainers{
         echo $html ."</div>";
         
      }
+     
 
+     public function showMovieCategories(){
+        
+        $query= $this->con->prepare("SELECT * FROM categories");
+        
+        $query->execute();
+         
+       // Here new concept 
+        $html= "<div class='previewCategories'> 
+                   <h1> Movies </h1>";
+                   
+                   
+        while($row = $query->fetch(PDO::FETCH_ASSOC)){
+            
+            $html .= $this->getCategoryHtml($row,null,false,true);// here true for tvshows and false for movie
+            
+        }
+        echo $html ."</div>";
+        
+     }
 
     // This function will create like you may also like this category(very interesting)
     public function showCategory($categoryId, $title=null){
         $query= $this->con->prepare("SELECT * FROM categories WHERE id=:id");
         $query->bindValue(":id",$categoryId);
         $query->execute();
-        echo "hello";
+        
  
         $html= "<div class='previewCategories noScroll'>"; // Here new concept 
  
@@ -75,7 +95,7 @@ class  CategoryContainers{
         }
         else {
             //Get movie entities
-            
+            $entities = EntityProvider::getMoviesEntities($this->con, $categoryId,30);
         }
         if(sizeof($entities) == 0){
             return ;
