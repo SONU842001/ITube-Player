@@ -1,3 +1,14 @@
+
+// if topBar will scrolled then it will convert it into black color
+$(document).scroll(function(){
+    var isScrolled = $(this).scrollTop() > $(".topBar").height();
+    $(".topBar").toggleClass("scrolled",isScrolled);
+})
+
+
+
+
+
 function volumeToggle(button) {
     var muted = $(".previewVideo").prop("muted");
     $(".previewVideo").prop("muted", !muted);//it is for muted and unmuted 
