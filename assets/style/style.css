@@ -46,6 +46,34 @@ a {
     padding: 20px 35px;
     overflow-y: auto;
 }
+.passwordContainer{
+    background-color: transparent;
+    padding-top: 60px;
+    
+    margin-right: auto;
+    margin-left: auto;
+    width: 40%
+}
+.formSection{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+
+
+
+}
+.formSection h2{
+    color: #ffff;
+}
+.formSection form input[type="submit"]{
+    background-color: #dc1928;
+    width: 100px;
+    height: 40px;
+}
+
+
 
 .column form {
     display: flex;
@@ -355,12 +383,5 @@ button i {
     position: absolute;
     left: 48px;
     top: 150px;
-
-
-
-
-    
-
-
-    
 };
+
