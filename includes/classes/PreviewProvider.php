@@ -8,8 +8,8 @@ class PreviewProvider {
         $this->username = $username;
     }
 
-    public function createCategoryPreviewVideo(){
-        $entitiesArray = EntityProvider::getTVShowEntities($this->con, null ,1);
+    public function createCategoryPreviewVideo($categoryId){
+        $entitiesArray = EntityProvider::getEntities($this->con, $categoryId ,1);
         if(sizeof($entitiesArray) == 0)
         {
             ErrorMessage::show("No TV shows to display");
@@ -91,8 +91,11 @@ class PreviewProvider {
     
     public function createEntityPreviewSquare($entity) {
         $id = $entity->getId();
+        
         $thumbnail = $entity->getThumbnail();
+        
         $name = $entity->getName();
+        
 
         return "<a href='entity.php?id=$id'>
                     <div class='previewContainer small'>

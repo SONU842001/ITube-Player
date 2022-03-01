@@ -9,7 +9,7 @@
 
 $(function(){
 
-    var username= '<?php echo $userLoggedIn; ?>'
+    var username= '<?php echo $userLoggedIn; ?>';
     var timer;
 
     $(".searchInput").keyup(function(){
@@ -18,7 +18,17 @@ $(function(){
 
         timer = setTimeout(function(){
             var val = $(".searchInput").val();
-            console.log(val);
+
+            //Ajax code starts 
+            if(val !="")
+            {
+                $.post("ajax/getSearchResults.php",{term: val ,username: username },function(data){
+                    $(".results").html(data);
+                })
+            }
+            else{
+                $(".results").html("<h3 class='noSearch' > Plz Enter Movie Name</h3>");
+            }
         }, 500);
     })
 })

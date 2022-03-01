@@ -350,3 +350,17 @@ button i {
    padding: 5px 10px;
    border-radius: 3px;
 }
+.noSearch{
+    color:#f00;
+    position: absolute;
+    left: 48px;
+    top: 150px;
+
+
+
+
+    
+
+
+    
+};
