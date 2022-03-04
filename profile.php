@@ -1,6 +1,37 @@
 <?php 
  require_once("includes/header.php");
+ require_once("includes/classes/Account.php");
+ require_once("includes/classes/FormSanitizer.php");
+ require_once("includes/classes/Constants.php");
+
+ 
 ?>
+<?php
+
+ if(isset($_POST["saveDetailButton"])){
+     $account = new Account($con);
+
+     $firstName =FormSanitizer::sanitizeFormString($_POST["firstName"]);
+     $lastName =FormSanitizer::sanitizeFormString($_POST["lastName"]);
+     $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
+
+     if($account->updateDetails($firstName,$lastName,$email,$userLoggedIn)){
+         // success
+         echo "sucess";
+
+
+     }
+     else {
+         //failure
+         echo "false";
+     }
+
+
+
+ }
+?>
+
+
 
 <div class="passwordContainer column">
     <div class="formSection">
