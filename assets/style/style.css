@@ -383,5 +383,15 @@ button i {
     position: absolute;
     left: 48px;
     top: 150px;
-};
+}
+.alertSuccess,
+.alertError{
+    margin: 10px 0 ;
+}
+.alertError{
+    color: #dc1928;
+}
+.alertSuccess{
+    color: #2ecc71;
+}
 
