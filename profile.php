@@ -4,6 +4,7 @@
  require_once("includes/classes/FormSanitizer.php");
  require_once("includes/classes/Constants.php");
 $detailsMessage="";
+$passwordMessage="";
  
 ?>
 <?php
@@ -34,6 +35,33 @@ $detailsMessage="";
 
 
  }
+
+ if(isset($_POST["savePasswordButton"])){
+    $account = new Account($con);
+
+    $oldPassword =FormSanitizer::sanitizeFormString($_POST["oldPassword"]);
+    $newPassword =FormSanitizer::sanitizeFormString($_POST["newPassword"]);
+    $newPassword2 = FormSanitizer::sanitizeFormEmail($_POST["newPassword2"]);
+
+    if($account->updatePassword($oldPassword,$newPassword,$newPassword2,$userLoggedIn)){
+         $passwordMessage= "<div class='alertSuccess'>
+                             Password updated successfully!
+                             </div>";
+
+
+    }
+    else {
+        $errorMessage = $account->getFirstError();
+
+        $passwordMessage ="<div class='alertError'>
+                              $errorMessage
+                             </div>";
+                             
+    }
+
+
+
+}
 ?>
 
 
@@ -79,7 +107,10 @@ $detailsMessage="";
             <input type="password" name="oldPassword" placeholder=" Old password">
             <input type="password" name="newPassword" placeholder=" New password">
             <input type="password" name="newPassword2" placeholder=" Confirm passsword">
-
+              
+            <div class="message">
+            <?php echo $passwordMessage; ?>
+            </div>
            
             <input type="submit" name="savePasswordButton" value ="save">
 

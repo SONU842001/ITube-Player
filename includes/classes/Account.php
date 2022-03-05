@@ -171,5 +171,34 @@ class Account {  //creation of class Account
         }
     }
 
+    public function updatePassword($oldPw, $pw, $pw2, $un){
+         $this->validateOldPassword($oldPw, $un);
+         $this->validatePasswords($pw, $pw2);
+
+         if(empty($this->errorArray)){
+            $query=$this->con->prepare("UPDATE users SET password=:pw WHERE username=:un");
+             $query->bindValue(":pw", $pw);
+             $query->bindValue(":un", $un);
+             
+            return $query->execute();
+
+           
+        }
+        return false;
+    }
+
+    public function validateOldPassword($oldPw, $un ){
+        $pw=$oldPw;
+        $query = $this->con->prepare("SELECT * FROM users WHERE userName=:un AND password=:pw");
+         
+        $query->bindValue(":un", $un) ;
+        $query->bindValue(":pw", $pw) ;  
+        
+         $query->execute();
+         if($query->rowCount()==0){
+             array_push($this->errorArray, Constants::$passwordIncorrect);
+         }
+    }
+
 }
 ?>
