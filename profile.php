@@ -118,4 +118,19 @@ $passwordMessage="";
 
         </form>
     </div>
+
+    <div class="formSection">
+         <h2 >Subscription</h2>
+         <?php 
+         
+          if($user->getIsSubscribed()){
+              echo "<h3> You are subscribed! Go to Paypal to cancel.</h3>";
+          }
+          else{
+              echo"<a href='billing.php'>Subscribe to Clone</a>";
+          }
+             
+         
+         ?>
+    </div>
 </div>
